@@ -19,21 +19,21 @@ I use only features that are available in the test data. I do not use the ID as 
 
 Numerical features are filled with the median and scaled with StandardScaler. Categorical features are encoded with OneHotEncoder.
 
-The value unknown is handled by **[your selected method]**. The value pdays = 999 is replaced with the median, and a missing indicator is added.
+The value unknown is handled by kept as a separate category. The value pdays = 999 is replaced with the median, and a missing indicator is added.
 
 All preprocessing steps are inside a scikit-learn Pipeline. This helps prevent data leakage during cross-validation.
 
-The selected model is [model name]. Its main settings are [best parameters]. Class imbalance is handled by [your choice].
+The selected model is Random Forest. Its main settings are max_depth=12, min_samples_leaf=5. Class imbalance is handled by not used (default class weights).
 
-#4. Validation and Results
+4. Validation and Results
 
 I used an 80/20 stratified split. The 80% training part was evaluated with five-fold StratifiedKFold.
 
-The majority-class baseline had an accuracy of [value], ROC-AUC of [value], and AP of [value].
+The majority-class baseline had an accuracy of 0.8873, ROC-AUC of 0.5000, and AP of 0.1127.   
 
-The selected model had a mean CV AP of [value] with a standard deviation of [value]. Its mean ROC-AUC was [value].
+The selected model had a mean CV AP of 0.4617 with a standard deviation of 0.0144. Its mean ROC-AUC was 0.7986.   
 
-On the hold-out data, ROC-AUC was [value] and AP was [value]. When I selected the top 10% of clients, precision was [value], recall was [value], and lift was [value].
+On the hold-out data, ROC-AUC was 0.8075 and AP was 0.5166. When I selected the top 10% of clients, precision was 0.5456, recall was 0.4838, and lift was 4.84. 
 
 5. Limitations
 
